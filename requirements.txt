@@ -1,0 +1,9 @@
+pandas
+numpy
+requests
+yfinance
+pytz
+flask
+flaskcors
+sqlalchemy
+dotenv

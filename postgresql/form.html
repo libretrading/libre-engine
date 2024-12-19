@@ -1,0 +1,46 @@
+<!-- The form structure remains the same -->
+<form id="apiForm">
+    <label for="email">Login Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="api_public">Alpaca Public API:</label><br>
+    <input type="text" id="api_public" name="api_public" required><br><br>
+
+    <label for="api_secret">Alpaca Secret API:</label><br>
+    <input type="text" id="api_secret" name="api_secret" required><br><br>
+
+    <label>
+        <input type="checkbox" name="update_keys" value="yes">
+        Update Keys
+    </label><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<!-- Div to display the response message -->
+<div id="responseMessage"></div>
+
+<!-- AJAX script to handle form submission without reloading the page -->
+<script>
+    document.getElementById('apiForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        // Prepare the form data
+        const formData = new FormData(this);
+
+        // Send the form data via an AJAX POST request
+        fetch('https://example.com/api', {  // Use a general placeholder URL
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.text()) // Parse the response as text
+        .then(data => {
+            // Display the response message
+            document.getElementById('responseMessage').innerText = data;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('responseMessage').innerText = 'An error occurred';
+        });
+    });
+</script>

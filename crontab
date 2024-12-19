@@ -1,0 +1,10 @@
+# Environment settings
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/path/to/your/pythonenv/bin
+
+# Running the maintenance script daily at 10:40 AM
+0 0 * * 5 bash /path/to/scripts/maintenance.sh >> /path/to/logs/maintenance.log 2>&1
+
+# Running the run_schedulers.sh script daily at 11:10 AM
+0 1 * * 5 bash /path/to/scripts/run_schedulers.sh >> /path/to/logs/scheduler_cron.log 2>&1
+
